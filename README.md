@@ -1,6 +1,7 @@
 # Contains Duplicate II Shenanigans
 This repo includes my files and sorrow for a C solution to "219. Contains Duplicate II".
 
+- `best.c` is the "optimized for the problem" solution
 - `fine.c` is the good version that runs well
 - `fine.cpp` is the good C++ solution that uses STL
 - `with_got.c` is the solution with my got library (well now an older version of it)
@@ -15,6 +16,8 @@ The executables will then be run and `time` will be used for a quick comparison.
 
 All of the files include their only test case and their respective executables should return 0 on success.
 
+You can also run `make clean` to clean up the executables.
+
 Made to run for Linux, other platforms may or may not work.
 
 # Results
@@ -22,10 +25,13 @@ On my cranky 10th gen i5:
 
 | Name       | Time    | Time (-O2) |
 |------------|---------|------------|
+| best.c     | 1 ms    | 1 ms       |
 | fine.c     | 5 ms    | 4 ms       |
 | fine.cpp   | 26 ms   | 6 ms       |
 | with_got.c | 2227 ms | 691 ms     |
 | awful.c    | 8292 ms | 1893 ms    |
+
+`best.c` was optimized heavily for the leetcode problem, as you can see by its time here.
 
 Interestingly, `fine.c` while performing well here, is quite slow on Leetcode, taking ~700ms (~350ms if we remove the valid field) vs `fine.cpp`'s ~90ms on all tests.
 

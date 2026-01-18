@@ -2,7 +2,9 @@ SHELL := /bin/bash
 
 all: test
 
-test: fine fine-cpp awful with-got
+test: best fine fine-cpp awful with-got
+	time ./best
+	time ./best-opt
 	time ./fine
 	time ./fine-opt
 	time ./fine-cpp
@@ -11,6 +13,10 @@ test: fine fine-cpp awful with-got
 	time ./with-got-opt
 	time ./awful
 	time ./awful-opt
+
+best: best.c
+	cc best.c -o best
+	cc best.c -O2 -march=native -o best-opt
 
 fine: fine.c
 	cc fine.c -o fine
@@ -29,6 +35,7 @@ fine-cpp: fine.cpp
 	c++ fine.cpp -O2 -march=native -o fine-cpp-opt
 
 clean:
+	rm best best-opt
 	rm fine fine-opt
 	rm fine-cpp fine-cpp-opt
 	rm with-got with-got-opt
