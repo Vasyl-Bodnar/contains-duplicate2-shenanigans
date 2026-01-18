@@ -1,4 +1,4 @@
-# Contains Duplicate II shenigans
+# Contains Duplicate II Shenanigans
 This repo includes my files and sorrow for a C solution to "219. Contains Duplicate II".
 
 - `fine.c` is the good version that runs well
