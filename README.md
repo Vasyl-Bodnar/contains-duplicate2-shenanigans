@@ -7,11 +7,11 @@ This repo includes my files and sorrow for a C solution to "219. Contains Duplic
 - `awful.c` is the original solution
 
 # Build, Run, Test
-To build and run simply have any decent C compiler and C++ compiler, then run `make`. 
+To build and run, have any decent C compiler and C++ compiler, then run `make`. 
 
 This should build all of them with and without optimizations (-O2 -march=native).
 
-They will also be run and simple `time` will be used for a basic comparison.
+The executables will then be run and `time` will be used for a quick comparison.
 
 All of the files include their only test case and their respective executables should return 0 on success.
 
