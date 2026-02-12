@@ -4,7 +4,7 @@ This repo includes my files and sorrow for a C solution to "219. Contains Duplic
 - `best.c` is the "optimized for the problem" solution
 - `fine.c` is the good version that runs well
 - `fine.cpp` is the good C++ solution that uses STL
-- `with_got.c` is the solution with my got library (the newer and older versions)
+- `with_got.c` is the solution with my got library (multiple versions)
 - `awful.c` is the original solution
 
 # Build, Run, Test
@@ -23,14 +23,15 @@ Made to run for Linux, other platforms may or may not work.
 # Results
 On my cranky 10th gen i5:
 
-| Name             | Time    | Time (-O2) |
-|------------------|---------|------------|
-| best.c           | 1 ms    | 1 ms       |
-| fine.c           | 5 ms    | 4 ms       |
-| fine.cpp         | 26 ms   | 6 ms       |
-| with_got.c (new) | 24 ms   | 8 ms       |
-| with_got.c (old) | 2227 ms | 691 ms     |
-| awful.c          | 8292 ms | 1893 ms    |
+| Name                 | Time    | Time (-O2) |
+|----------------------|---------|------------|
+| best.c               | 1 ms    | 1 ms       |
+| fine.c               | 5 ms    | 4 ms       |
+| fine.cpp             | 26 ms   | 6 ms       |
+| with_got.c (aligned) | 24 ms   | 8 ms       |
+| with_got.c (new)     | 24 ms   | 8 ms       |
+| with_got.c (old)     | 2227 ms | 691 ms     |
+| awful.c              | 8292 ms | 1893 ms    |
 
 `best.c` was optimized heavily for the leetcode problem, as you can see by its time here.
 
@@ -41,6 +42,7 @@ The other solutions use bucket hash tables which you would not expect to be much
 Otherwise, as expected, my original `awful.c` is well-named, and `with_got.c` uses my older got lib. Both a reminder of my mistakes. Each takes visible seconds.
 
 With the new got lib, `with_got.c` takes a far more reasonable time closer to C++'s `unordered_map` used in fine.cpp. 
+I also added a newer version where SIMD loads are aligned to no difference, so I wonder if my CPU is indifferent to that for these purposes.
 Though, do note that this table is more of to show how bad the bad results are rather than to compare the different hashtables I used in the better results.
 
 Note that I used the standard 256 elements pre-allocation across all (besides `best.c` since it is static).
